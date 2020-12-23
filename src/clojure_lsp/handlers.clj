@@ -290,13 +290,14 @@
         local-env (get file-envs doc-id)
         {cursor-sym :sym} (find-reference-under-cursor line column local-env (shared/uri->file-type doc-id))]
     (log/warn "references" doc-id line column cursor-sym)
-    (into []
-          (for [[uri usages] (:file-envs @db/db)
-                {:keys [sym tags] :as usage} usages
-                :when (and (= sym cursor-sym)
-                           (not (contains? tags :declare)))]
-            {:uri uri
-             :usage usage}))))
+    (distinct
+     (into []
+           (for [[uri usages] (:file-envs @db/db)
+                 {:keys [sym tags] :as usage} usages
+                 :when (and (= sym cursor-sym)
+                            (not (contains? tags :declare)))]
+             {:uri uri
+              :usage (dissoc usage :file-type)})))))
 
 (defn references [doc-id line column]
   (mapv (fn [{:keys [uri usage]}]
@@ -435,10 +436,11 @@
                                (group-by :namespace))]
     (->> (symbol-parent-map nil)
          (map (fn [e]
-                (if-let [children (symbol-parent-map (:name e))]
+                (if-let [children (distinct (symbol-parent-map (:name e)))]
                   (assoc e :children children)
                   e)))
-         (into []))))
+         (into [])
+         distinct)))
 
 (defn file-env-entry->document-highlight [{:keys [row end-row col end-col]}]
   (let [r {:start {:line (dec row) :character (dec col)}
@@ -651,7 +653,8 @@
                         (not (contains? tags :param)))))
          (map (fn [usage]
                 {:range (shared/->range usage)
-                 :data  [doc-id (:row usage) (:col usage)]})))))
+                 :data  [doc-id (:row usage) (:col usage)]}))
+         distinct)))
 
 (defn code-lens-resolve
   [range [doc-id row col]]
