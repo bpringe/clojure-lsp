@@ -13,7 +13,7 @@
       
         <link rel="canonical" href="https://clojure-lsp.github.io/clojure-lsp/">
       
-      <link rel="shortcut icon" href="images/logo.png">
+      <link rel="shortcut icon" href="images/logo-light.svg">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
@@ -79,7 +79,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://clojure-lsp.github.io/clojure-lsp" title="Clojure LSP" class="md-header-nav__button md-logo" aria-label="Clojure LSP">
       
-  <img src="images/logo.png" alt="logo">
+  <img src="images/logo-light.svg" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -232,6 +232,18 @@
   </li>
 
       
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="CHANGELOG/" class="md-tabs__link">
+      Changelog
+    </a>
+  </li>
+
+      
     </ul>
   </div>
 </nav>
@@ -256,7 +268,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://clojure-lsp.github.io/clojure-lsp" title="Clojure LSP" class="md-nav__button md-logo" aria-label="Clojure LSP">
       
-  <img src="images/logo.png" alt="logo">
+  <img src="images/logo-light.svg" alt="logo">
 
     </a>
     Clojure LSP
@@ -448,6 +460,19 @@
   </li>
 
     
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="CHANGELOG/" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -551,7 +576,7 @@
                   </a>
                 
                 
-                <p><img src="images/logo.png" width="180" align="right"></p>
+                <p><img src="images/logo-dark.svg" width="180" align="right"></p>
 <p><img alt="CI" src="https://img.shields.io/github/workflow/status/clojure-lsp/clojure-lsp/CI?style=flat-square" />
 <a href="https://clojurians.slack.com/archives/CPABC1H61"><img alt="Slack community" src="https://img.shields.io/badge/Slack-chat-blue?style=flat-square" /></a>
 <a href="https://github.com/clojure-lsp/clojure-lsp"><img alt="Github starts" src="https://img.shields.io/github/stars/clojure-lsp/clojure-lsp?style=social" /></a></p>
@@ -571,7 +596,7 @@
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>The goal of this project is to bring great editing tools for Clojure to all editors.
-It aims to work alongside you to help you navigate, identify and fix errors, perform refactorings and much more!</p>
+It aims to work alongside you to help you navigate, identify and fix errors, perform refactors and much more!</p>
 <p>You will get:</p>
 <ul>
 <li><strong>Autocomplete</strong></li>
@@ -592,7 +617,7 @@ It aims to work alongside you to help you navigate, identify and fix errors, per
 <li>You need <code>java</code> on your $PATH.</li>
 <li>Grab the latest <code>clojure-lsp</code> from github <a href="https://github.com/snoe/clojure-lsp/releases/latest">LATEST</a></li>
 <li>Place it in your $PATH with a chmod 755</li>
-<li>Follow the documentation for your editor's language client. See <a href="#clients">Clients</a> below.</li>
+<li>Follow the documentation for your editor's language client. See <a href="//clojure-lsp.github.io/clojure-lsp/clients">Clients</a>.</li>
 </ul>
 <h3 id="nix">Nix<a class="headerlink" href="#nix" title="Permanent link">#</a></h3>
 <p><code>clojure-lsp</code> is available in the <a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/misc/clojure-lsp/default.nix">nixpkgs</a>:</p>
@@ -606,7 +631,8 @@ It aims to work alongside you to help you navigate, identify and fix errors, per
 <p>For <code>clojure-lsp</code> development, there are 3 possible ways of finding a bug or implementing a new feature:
 - Create a test for your bug/feature, then implement the code following the test.
 - <code>clojure-lsp</code> starts a NREPL server, with that it's possible to change the code of a running instance and see the changes on your client in real time. To get the NREPL port, you can check the <code>/tmp/clojure-lsp.out</code> log, it will print the NREPL port on server startup or you can get it via <code>server-info</code> custom LSP command.
-- Build <code>clojure-lsp</code> with your changes and test it manually in your client, this is the slowest option, but it makes sense final tests.</p>
+- Build <code>clojure-lsp</code> with your changes and test it manually in your client, this is the slowest option, but it makes sense final tests.
+- For debugging purposes, there is two custom commands <code>server-info</code> and <code>cursor-info</code>.</p>
 <hr />
 <h2 id="contribution">Contribution<a class="headerlink" href="#contribution" title="Permanent link">#</a></h2>
 <p>Contributions to <code>clojure-lsp</code> are very welcome! You can open an issue or a PR and we'd love to help.</p>
@@ -615,6 +641,7 @@ It aims to work alongside you to help you navigate, identify and fix errors, per
 <p><code>clojure-lsp</code> has more than 8.000 lines of code, to keep all of this working, we need to help the community on a lot of issues and implement new features. As a LSP server, this project is the base for Clojure clients like Emacs(lsp-mode), VSCode(Calva) and vim.</p>
 <p>You can help us keep going and improving it by <strong><a href="https://opencollective.com/clojure-lsp">supporting the project</a></strong></p>
 <p><a href="https://opencollective.com/clojure-lsp"><img alt="" src="https://opencollective.com/clojure-lsp/tiers/backer.svg" /></a></p>
+<p>Special thanks to <a href="https://eccentric-j.com/">Eccentric-J</a> for the <code>clojure-lsp</code> logo</p>
                 
                   
                     
@@ -623,7 +650,7 @@ It aims to work alongside you to help you navigate, identify and fix errors, per
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 13, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 26, 2021</span>
     
   </small>
 </div>
@@ -683,6 +710,15 @@ It aims to work alongside you to help you navigate, identify and fix errors, per
       
       <a href="https://github.com/clojure-lsp/clojure-lsp" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://clojurians.slack.com/archives/CPABC1H61" target="_blank" rel="noopener" title="clojurians.slack.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
       </a>
     
   </div>
