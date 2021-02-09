@@ -18,7 +18,7 @@
     
     
       
-        <title>Clojure LSP</title>
+        <title>Overview - Clojure LSP</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Home
+              Overview
             
           </span>
         </div>
@@ -165,11 +165,15 @@
   
 
 
-  <li class="md-tabs__item">
-    <a href="." class="md-tabs__link md-tabs__link--active">
-      Home
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    </li>
+  
 
       
         
@@ -178,44 +182,8 @@
 
 
   <li class="md-tabs__item">
-    <a href="settings/" class="md-tabs__link">
-      Settings
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="clients/" class="md-tabs__link">
-      Clients
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="capabilities/" class="md-tabs__link">
-      Capabilities
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="troubleshooting/" class="md-tabs__link">
-      Troubleshooting
+    <a href="features/" class="md-tabs__link">
+      Features
     </a>
   </li>
 
@@ -297,6 +265,32 @@
   
 
 
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -305,12 +299,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
+        Overview
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="." class="md-nav__link md-nav__link--active">
-      Home
+      Overview
     </a>
     
       
@@ -355,15 +349,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-manually" class="md-nav__link">
-    Building manually
+  <a href="#building" class="md-nav__link">
+    Building
   </a>
+  
+    <nav class="md-nav" aria-label="Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graavm" class="md-nav__link">
+    GraaVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -394,10 +408,10 @@
     
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
 
@@ -407,10 +421,10 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
 
@@ -420,10 +434,23 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="troubleshooting/" class="md-nav__link">
+      Troubleshooting
+    </a>
+  </li>
+
+        
+          
+          
+          
 
 
 
@@ -431,6 +458,11 @@
     <a href="capabilities/" class="md-nav__link">
       Capabilities
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -441,8 +473,8 @@
 
 
   <li class="md-nav__item">
-    <a href="troubleshooting/" class="md-nav__link">
-      Troubleshooting
+    <a href="features/" class="md-nav__link">
+      Features
     </a>
   </li>
 
@@ -526,15 +558,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-manually" class="md-nav__link">
-    Building manually
+  <a href="#building" class="md-nav__link">
+    Building
   </a>
+  
+    <nav class="md-nav" aria-label="Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graavm" class="md-nav__link">
+    GraaVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -623,15 +675,23 @@ It aims to work alongside you to help you navigate, identify and fix errors, per
 <p><code>clojure-lsp</code> is available in the <a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/misc/clojure-lsp/default.nix">nixpkgs</a>:</p>
 <div class="highlight"><pre><span></span><code>nix-shell -p clojure-lsp
 </code></pre></div>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">#</a></h3>
+<p><code>clojure-lsp</code> is available as a native executable in the <a href="https://github.com/littleli/scoop-clojure">Clojure Scoop bucket</a>. You need to <a href="https://github.com/littleli/scoop-clojure/wiki/Getting-started#installation">install Scoop</a> if you don't have it already.</p>
+<p>Issue following command to download the <code>clojure-lsp</code> executable.</p>
+<div class="highlight"><pre><span></span><code>scoop install clojure-lsp
+</code></pre></div>
 <hr />
-<h2 id="building-manually">Building manually<a class="headerlink" href="#building-manually" title="Permanent link">#</a></h2>
-<p>For building manually, run <code>lein bin</code> to generate the binary inside <code>target</code> folder or <code>lein uberjar</code> for building the standalone jar.</p>
+<h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">#</a></h2>
+<p>For building the jar manually, run <code>lein bin</code> to generate the embedded jar inside <code>target</code> folder or <code>lein uberjar</code> for building the standalone jar.</p>
+<h3 id="graavm">GraaVM<a class="headerlink" href="#graavm" title="Permanent link">#</a></h3>
+<p>Every release the native binaries (Windows, Linux and MacOS) are compiled with <strong>GraalVM</strong> and uploaded.</p>
+<p>To build a native image with GraalVM, first install the GraalVM 21.0.0 for Java 11, set the <code>GRAALVM_HOME</code> to the installation dir and then run from <code>clojure-lsp</code> project root <code>./graalvm/native-unix-compile.sh</code> or <code>./graalvm/native-windows-compile.bat</code>. The build may take some minutes and the result will be a <code>./clojure-lsp</code> native binary.</p>
 <hr />
 <h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">#</a></h2>
 <p>For <code>clojure-lsp</code> development, there are 3 possible ways of finding a bug or implementing a new feature:
 - Create a test for your bug/feature, then implement the code following the test.
-- <code>clojure-lsp</code> starts a NREPL server, with that it's possible to change the code of a running instance and see the changes on your client in real time. To get the NREPL port, you can check the <code>/tmp/clojure-lsp.out</code> log, it will print the NREPL port on server startup or you can get it via <code>server-info</code> custom LSP command.
-- Build <code>clojure-lsp</code> with your changes and test it manually in your client, this is the slowest option, but it makes sense final tests.
+- <code>clojure-lsp</code> starts a NREPL server if built with <code>lein with-profile :debug bin</code>, with that it's possible to change the code of a running instance and see the changes on your client in real time. To get the NREPL port, you can check the <code>/tmp/clojure-lsp.out</code> log, it will print the NREPL port on server startup or you can get it via <code>server-info</code> custom LSP command.
+- Build <code>clojure-lsp</code> with your changes and test it manually in your client, this is the slowest option, but it makes sense for final tests.
 - For debugging purposes, there is two custom commands <code>server-info</code> and <code>cursor-info</code>.</p>
 <hr />
 <h2 id="contribution">Contribution<a class="headerlink" href="#contribution" title="Permanent link">#</a></h2>
@@ -650,7 +710,7 @@ It aims to work alongside you to help you navigate, identify and fix errors, per
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 9, 2021</span>
     
   </small>
 </div>
