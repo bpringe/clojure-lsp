@@ -2,8 +2,9 @@
 ;; Check the settings documentation section for more details of each one.
 {:source-paths #{"src" "test"} ;; auto-resolved for deps.edn, project.clj or bb.edn projects
  :source-aliases #{:dev :test}
- :project-specs [] ;; Check the default at clojure-lsp.crawler/default-project-specs
- :source-paths-ignore-regex ["resources.*" "target.*"]
+ :project-specs [] ;; Check the default at clojure-lsp.classpath/default-project-specs
+ :source-paths-ignore-regex ["target.*"]
+ :paths-ignore-regex []
  :lint-project-files-after-startup? true
  :notify-references-on-file-change true
  :compute-external-file-changes true
@@ -22,9 +23,12 @@
  :hover {:hide-file-location? false
          :arity-on-same-line? false
          :clojuredocs true}
+ :completion {:additional-edits-warning-text nil
+              :analysis-type :fast-but-stale}
  :java {:jdk-source-uri "https://raw.githubusercontent.com/clojure-lsp/jdk-source/main/openjdk-19/reduced/source.zip" ; "file:///usr/lib/jvm/java-17-openjdk/lib/src.zip"
         :home-path nil ;; jdk-source-uri takes precedence
-        :download-jdk-source? false}
+        :download-jdk-source? false
+        :decompile-jar-as-project? true}
  :code-lens {:segregate-test-references true}
  :semantic-tokens? true
  :use-metadata-for-privacy? false
@@ -32,7 +36,7 @@
  :keep-parens-when-threading? false
  :document-formatting? true
  :document-range-formatting? true
- :dependency-scheme :zip
+ :dependency-scheme "zipfile"
  :text-document-sync-kind :full
  :cljfmt-config-path ".cljfmt.edn"
  :cljfmt {}

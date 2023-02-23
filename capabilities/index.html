@@ -209,11 +209,15 @@
   
 
 
-  <li class="md-tabs__item">
-    <a href="../api/" class="md-tabs__link">
-      API
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/what-is-it/" class="md-tabs__link">
+        Outside editor (API)
+      </a>
+    </li>
+  
 
       
         
@@ -558,10 +562,104 @@
 
 
 
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      Outside editor (API)
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Outside editor (API)" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Outside editor (API)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
   <li class="md-nav__item">
-    <a href="../api/" class="md-nav__link">
-      API
+    <a href="../api/what-is-it/" class="md-nav__link">
+      What is clojure-lsp API?
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../api/api/" class="md-nav__link">
+      API (JVM)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../api/cli/" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../api/ci/" class="md-nav__link">
+      CI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../api/lein-plugin/" class="md-nav__link">
+      Lein plugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../api/bb-pod/" class="md-nav__link">
+      Babashka pod
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -1102,7 +1200,7 @@
 <hr />
 <h4 id="more-details">More details<a class="headerlink" href="#more-details" title="Permanent link">#</a></h4>
 <p>Calling <code>executeCommand</code> with the following commands and additional args will notify the client with <code>applyEdit</code>.
-All commands expect the first three args to be <code>[document-uri, line, column]</code> (eg <code>["file:///home/snoe/file.clj", 13, 11]</code>)</p>
+All commands expect the first three args to be <code>[document-uri, line, character]</code> (eg <code>["file:///home/snoe/file.clj", 13, 11]</code>)</p>
 <table>
 <thead>
 <tr>
@@ -1115,8 +1213,8 @@ All commands expect the first three args to be <code>[document-uri, line, column
 <tbody>
 <tr>
 <td>√</td>
-<td>add-import-to-namespace</td>
-<td><code>[document-uri, line, column, import-name]</code></td>
+<td>add-missing-import</td>
+<td><code>[document-uri, line, character, import-name]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1152,7 +1250,7 @@ All commands expect the first three args to be <code>[document-uri, line, column
 <tr>
 <td>√</td>
 <td>extract-function</td>
-<td><code>[document-uri, line, column, function-name]</code></td>
+<td><code>[document-uri, line, character, function-name]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1164,13 +1262,13 @@ All commands expect the first three args to be <code>[document-uri, line, column
 <tr>
 <td>√</td>
 <td>introduce-let</td>
-<td><code>[document-uri, line, column, binding-name]</code></td>
+<td><code>[document-uri, line, character, binding-name]</code></td>
 <td></td>
 </tr>
 <tr>
 <td>√</td>
 <td>move-to-let</td>
-<td><code>[document-uri, line, column, binding-name]</code></td>
+<td><code>[document-uri, line, character, binding-name]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1212,7 +1310,7 @@ All commands expect the first three args to be <code>[document-uri, line, column
 <tr>
 <td>√</td>
 <td>resolve-macro-as</td>
-<td><code>[document-uri, line, column, resolved-full-symbol kondo-config-path]</code></td>
+<td><code>[document-uri, line, character, resolved-full-symbol kondo-config-path]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1225,7 +1323,7 @@ All commands expect the first three args to be <code>[document-uri, line, column
 </table>
 <p>See Vim client section for an example.</p>
 <p>Emacs provides all those refactorings via <a href="https://emacs-lsp.github.io/lsp-mode/">lsp-mode</a>  with the <code>lsp-clojure-</code> prefix.</p>
-<p>Other clients might provide a higher level interface to <code>workspace/executeCommand</code> you need to pass the path, line and column numbers.</p>
+<p>Other clients might provide a higher level interface to <code>workspace/executeCommand</code> you need to pass the path, line and character numbers.</p>
 <h3 id="custom-methods">Custom methods<a class="headerlink" href="#custom-methods" title="Permanent link">#</a></h3>
 <p><code>clojure-lsp</code> has some custom LSP methods that doesn't follow the protocol but aggregate value as a clojure IDE:</p>
 <h4 id="test-tree">Test tree<a class="headerlink" href="#test-tree" title="Permanent link">#</a></h4>
@@ -1264,7 +1362,7 @@ All commands expect the first three args to be <code>[document-uri, line, column
 <p>Type: Client request with response</p>
 <p>Capability: none </p>
 <p>Method: <code>clojure/cursorInfo/log</code></p>
-<p>Params: <code>[uri, line, column]</code> </p>
+<p>Params: <code>[uri, line, character]</code> </p>
 <p>Response: Any</p>
 <h4 id="clojuredocs-raw">Clojuredocs raw<a class="headerlink" href="#clojuredocs-raw" title="Permanent link">#</a></h4>
 <p>Use to retrieve any Clojuredocs entry. Will return <code>null</code> if no entry found.</p>
@@ -1281,7 +1379,7 @@ All commands expect the first three args to be <code>[document-uri, line, column
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 30, 2022</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 22, 2023</span>
     
   </small>
 </div>
